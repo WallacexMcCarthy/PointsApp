@@ -13,7 +13,7 @@ public class LoginPage
     private final JLabel passwordLabel;
     private final JButton button;
     private final JLabel imageLabel;
-    ImageIcon loginBackground;
+    private final ImageIcon loginBackground;
     public LoginPage()
     {
         frame = new JFrame();
