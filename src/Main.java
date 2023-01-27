@@ -1,4 +1,5 @@
-import views.LoginPage;
+import views.WelcomePage;
+import views.loginviews.LoginPage;
 
 public class Main
 {
