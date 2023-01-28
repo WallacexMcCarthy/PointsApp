@@ -5,6 +5,10 @@ import views.WelcomePage;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 
 public class LoginPage
 {
@@ -18,8 +22,15 @@ public class LoginPage
     private final JButton resetPasswordbutton;
     private final JLabel imageLabel;
     private final ImageIcon loginBackground;
-    public LoginPage()
-    {
+    public LoginPage() throws SQLException {
+        String USERS_DB_URL = "identifier.sqlite";
+        try
+        {
+            Connection connection = DriverManager.getConnection(USERS_DB_URL);
+        } catch (Exception e)
+        {
+            System.out.println("Could not connect to the Data Base!");
+        }
         frame = new JFrame();
         frame.setSize(455, 455);
         frame.setTitle("Points");
