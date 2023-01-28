@@ -1,17 +1,18 @@
 package views.loginviews;
 
+import Utilities.User;
 import views.WelcomePage;
+import Utilities.Users;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 
 public class LoginPage
 {
+    private final Users users;
+    public int userIndex;
     private final JFrame frame;
     private final JLabel userLabel;
     private final JTextField userText;
@@ -22,15 +23,10 @@ public class LoginPage
     private final JButton resetPasswordbutton;
     private final JLabel imageLabel;
     private final ImageIcon loginBackground;
-    public LoginPage() throws SQLException {
-        String USERS_DB_URL = "identifier.sqlite";
-        try
-        {
-            Connection connection = DriverManager.getConnection(USERS_DB_URL);
-        } catch (Exception e)
-        {
-            System.out.println("Could not connect to the Data Base!");
-        }
+    public LoginPage()
+    {
+        userIndex = 0;
+        users = new Users();
         frame = new JFrame();
         frame.setSize(455, 455);
         frame.setTitle("Points");
@@ -83,12 +79,15 @@ public class LoginPage
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(userText.getText());
-                System.out.println(passwordText.getText());
-                if(userText.getText().equals("t") && passwordText.getText().equals("t"))
+                for(int index = 0; index < users.getUsers().size(); index++)
                 {
-                    new WelcomePage();
-                    frame.dispose();
+                    if(userText.getText().equals(users.getUsers(index).getName()) &&
+                            passwordText.getText().equals(users.getUsers(index).getPassword()))
+                    {
+                        userIndex = index;
+                        new WelcomePage(userIndex);
+                        frame.dispose();
+                    }
                 }
             }
         });

@@ -1,5 +1,9 @@
 package views;
 
+import Utilities.User;
+import Utilities.Users;
+import views.loginviews.LoginPage;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,13 +11,20 @@ import java.time.temporal.JulianFields;
 
 public class WelcomePage
 {
+    private int userIndex;
+    private final LoginPage loginPage;
+    private final Users users;
     private final JFrame frame;
     private final JPanel panel;
     private final JLabel welcomeUser;
     private final JButton addPointsButton;
     private final JButton userAccountButton;
-    public WelcomePage()
+    private final JButton logoutButton;
+    public WelcomePage(int userIndex)
     {
+        this.userIndex = userIndex;
+        loginPage = new LoginPage();
+        users = new Users();
         frame = new JFrame();
         panel = new JPanel();
         frame.setSize(750, 750);
@@ -21,16 +32,16 @@ public class WelcomePage
         panel.setLayout(null);
         frame.add(panel);
 
-        welcomeUser = new JLabel("Welcome");
+        welcomeUser = new JLabel("Welcome " + users.getUsers(userIndex).getName());
         panel.add(welcomeUser);
-        welcomeUser.setBounds(230, 40, 80, 25);
+        welcomeUser.setBounds(230, 40, 200, 25);
 
         addPointsButton = new JButton("Add Points");
         addPointsButton.setBounds(230, 70, 120, 25);
         addPointsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new AddPointsPage();
+                new AddPointsPage(userIndex);
                 frame.dispose();
             }
         });
@@ -46,6 +57,16 @@ public class WelcomePage
             }
         });
         panel.add(userAccountButton);
+        logoutButton = new JButton("Logout");
+        logoutButton.setBounds(0, 0, 120, 25);
+        logoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new LoginPage();
+                frame.dispose();
+            }
+        });
+        panel.add(logoutButton);
 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

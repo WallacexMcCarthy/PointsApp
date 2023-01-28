@@ -1,11 +1,14 @@
 package views;
 
+import views.loginviews.LoginPage;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AddPointsPage
 {
+    private int userIndex;
     private final JFrame frame;
     private final JPanel panel;
     private final String month = java.time.LocalDate.now().getMonth().toString();
@@ -44,8 +47,9 @@ public class AddPointsPage
     private final JLabel itemFourteenLabel;
     private final JLabel itemFifteenLabel;
     private final JLabel placeholder;
-    public AddPointsPage()
+    public AddPointsPage(int userIndex)
     {
+        this.userIndex = userIndex;
         frame = new JFrame();
         frame.setSize(750, 750);
         panel = new JPanel();
@@ -62,7 +66,7 @@ public class AddPointsPage
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                WelcomePage welcomePage = new WelcomePage();
+                WelcomePage welcomePage = new WelcomePage(userIndex);
             }
         });
         panel.add(exitButton);
