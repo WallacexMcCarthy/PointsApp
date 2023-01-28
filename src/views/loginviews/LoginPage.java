@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 public class LoginPage
 {
     private final JFrame frame;
-    private final JLabel userlLabel;
+    private final JLabel userLabel;
     private final JTextField userText;
     private final JPasswordField passwordText;
     private final JLabel passwordLabel;
@@ -28,9 +28,9 @@ public class LoginPage
         imageLabel = new JLabel(loginBackground);
         frame.add(imageLabel);
 
-        userlLabel = new JLabel("User");
-        userlLabel.setBounds(10, 20, 80, 25);
-        imageLabel.add(userlLabel);
+        userLabel = new JLabel("User");
+        userLabel.setBounds(10, 20, 80, 25);
+        imageLabel.add(userLabel);
 
         userText = new JTextField(20);
         userText.setBounds(100, 20, 165, 25);
