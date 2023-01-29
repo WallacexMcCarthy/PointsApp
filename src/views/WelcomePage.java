@@ -19,6 +19,7 @@ public class WelcomePage
     private final JLabel welcomeUser;
     private final JButton addPointsButton;
     private final JButton userAccountButton;
+    private final JButton leaderboardButton;
     private final JButton logoutButton;
     public WelcomePage(int userIndex)
     {
@@ -57,6 +58,17 @@ public class WelcomePage
             }
         });
         panel.add(userAccountButton);
+        leaderboardButton = new JButton("Account");
+        leaderboardButton.setBounds(230, 130, 120, 25);
+        leaderboardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new LeaderboardPage(userIndex);
+                frame.dispose();
+            }
+        });
+        panel.add(leaderboardButton);
+
         logoutButton = new JButton("Logout");
         logoutButton.setBounds(0, 0, 120, 25);
         logoutButton.addActionListener(new ActionListener() {
