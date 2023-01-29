@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 public class AddPointsPage
 {
     private int userIndex;
+    private final String onePoint;
+    private final String twoPoints;
     private final JFrame frame;
     private final JPanel panel;
     private final String month = java.time.LocalDate.now().getMonth().toString();
@@ -29,8 +31,6 @@ public class AddPointsPage
     private final JCheckBox itemEleven;
     private final JCheckBox itemTweleve;
     private final JCheckBox itemThirteen;
-    private final JCheckBox itemFourteen;
-    private final JCheckBox itemFifteen;
     private final JLabel itemOneLabel;
     private final JLabel itemTwoLabel;
     private final JLabel itemThreeLabel;
@@ -44,11 +44,10 @@ public class AddPointsPage
     private final JLabel itemElevenLabel;
     private final JLabel itemTweleveLabel;
     private final JLabel itemThirteenLabel;
-    private final JLabel itemFourteenLabel;
-    private final JLabel itemFifteenLabel;
-    private final JLabel placeholder;
     public AddPointsPage(int userIndex)
     {
+        onePoint = "1 point | ";
+        twoPoints = "2 points | ";
         this.userIndex = userIndex;
         frame = new JFrame();
         frame.setSize(750, 750);
@@ -73,7 +72,7 @@ public class AddPointsPage
 
 
         itemOne = new JCheckBox();
-        itemOne.setBounds(350, 45, 80, 25);
+        itemOne.setBounds(10, 45, 80, 25);
         itemOne.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,7 +81,7 @@ public class AddPointsPage
         });
         panel.add(itemOne);
         itemTwo = new JCheckBox();
-        itemTwo.setBounds(350, 70, 80, 25);
+        itemTwo.setBounds(10, 70, 80, 25);
         itemTwo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,7 +90,7 @@ public class AddPointsPage
         });
         panel.add(itemTwo);
         itemThree = new JCheckBox();
-        itemThree.setBounds(350, 95, 80, 25);
+        itemThree.setBounds(10, 95, 80, 25);
         itemThree.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -100,7 +99,7 @@ public class AddPointsPage
         });
         panel.add(itemThree);
         itemFour = new JCheckBox();
-        itemFour.setBounds(350, 120, 80, 25);
+        itemFour.setBounds(10, 120, 80, 25);
         itemFour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -109,7 +108,7 @@ public class AddPointsPage
         });
         panel.add(itemFour);
         itemFive = new JCheckBox();
-        itemFive.setBounds(350, 145, 80, 25);
+        itemFive.setBounds(10, 145, 80, 25);
         itemFive.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -118,7 +117,7 @@ public class AddPointsPage
         });
         panel.add(itemFive);
         itemSix = new JCheckBox();
-        itemSix.setBounds(350, 170, 80, 25);
+        itemSix.setBounds(10, 170, 80, 25);
         itemSix.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -127,7 +126,7 @@ public class AddPointsPage
         });
         panel.add(itemSix);
         itemSeven = new JCheckBox();
-        itemSeven.setBounds(350, 195, 80, 25);
+        itemSeven.setBounds(10, 195, 80, 25);
         itemSeven.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -136,7 +135,7 @@ public class AddPointsPage
         });
         panel.add(itemSeven);
         itemEight = new JCheckBox();
-        itemEight.setBounds(350, 220, 80, 25);
+        itemEight.setBounds(10, 220, 80, 25);
         itemEight.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -145,7 +144,7 @@ public class AddPointsPage
         });
         panel.add(itemEight);
         itemNine = new JCheckBox();
-        itemNine.setBounds(350, 245, 80, 25);
+        itemNine.setBounds(10, 245, 80, 25);
         itemNine.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -154,7 +153,7 @@ public class AddPointsPage
         });
         panel.add(itemNine);
         itemTen = new JCheckBox();
-        itemTen.setBounds(350, 270, 80, 25);
+        itemTen.setBounds(10, 270, 80, 25);
         itemTen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -163,7 +162,7 @@ public class AddPointsPage
         });
         panel.add(itemTen);
         itemEleven = new JCheckBox();
-        itemEleven.setBounds(350, 295, 80, 25);
+        itemEleven.setBounds(10, 295, 80, 25);
         itemEleven.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -172,7 +171,7 @@ public class AddPointsPage
         });
         panel.add(itemEleven);
         itemTweleve = new JCheckBox();
-        itemTweleve.setBounds(350, 320, 80, 25);
+        itemTweleve.setBounds(10, 320, 80, 25);
         itemTweleve.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -181,7 +180,7 @@ public class AddPointsPage
         });
         panel.add(itemTweleve);
         itemThirteen = new JCheckBox();
-        itemThirteen.setBounds(350, 345, 80, 25);
+        itemThirteen.setBounds(10, 345, 80, 25);
         itemThirteen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -189,73 +188,58 @@ public class AddPointsPage
             }
         });
         panel.add(itemThirteen);
-        itemFourteen = new JCheckBox();
-        itemFourteen.setBounds(350, 370, 80, 25);
-        itemFourteen.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-            }
-        });
-        panel.add(itemFourteen);
-        itemFifteen = new JCheckBox();
-        itemFifteen.setBounds(350, 395, 80, 25);
-        itemFifteen.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        panel.add(itemFifteen);
-
-        itemOneLabel = new JLabel("Office Worker Person | 2 points: " + month + "/" + day + "/" + year);
-        itemOneLabel.setBounds(10, 45, 330, 25);
+        itemOneLabel = new JLabel("Vigorous Cardio Vascular Workout | " + twoPoints + month + "/" + day + "/" + year);
+        itemOneLabel.setBounds(40, 45, 700, 25);
         panel.add(itemOneLabel);
-        itemTwoLabel = new JLabel("Two " + month + " " + day + ", " + year);
-        itemTwoLabel.setBounds(10, 70, 330, 25);
+        itemTwoLabel = new JLabel("Mental or Physical Strength Training | " + onePoint + twoPoints  + month + " " + day + ", " + year);
+        itemTwoLabel.setBounds(40, 70, 700, 25);
         panel.add(itemTwoLabel);
-        itemThreeLabel = new JLabel("three " + month + " " + day + ", " + year);
-        itemThreeLabel.setBounds(10, 95, 330, 25);
+        itemThreeLabel = new JLabel("Drink  64 oz of Water | " + onePoint + month + " " + day + ", " + year);
+        itemThreeLabel.setBounds(40, 95, 700, 25);
         panel.add(itemThreeLabel);
-        itemFourLabel = new JLabel("four " + month + " " + day + ", " + year);
-        itemFourLabel.setBounds(10, 120, 330, 25);
+        itemFourLabel = new JLabel("Eat 2 4 Ounce Servings of Fresh Fruit or Vegetables | " + onePoint + month + " " + day + ", " + year);
+        itemFourLabel.setBounds(40, 120, 700, 25);
         panel.add(itemFourLabel);
-        itemFiveLabel = new JLabel("five " + month + " " + day + ", " + year);
-        itemFiveLabel.setBounds(10, 145, 330, 25);
+        itemFiveLabel = new JLabel("Replace a Meal With a Salad | " + onePoint + month + " " + day + ", " + year);
+        itemFiveLabel.setBounds(40, 145, 700, 25);
         panel.add(itemFiveLabel);
-        itemSixLabel = new JLabel("six " + month + " " + day + ", " + year);
-        itemSixLabel.setBounds(10, 170, 330, 25);
+        itemSixLabel = new JLabel("No Soda | " + onePoint + month + " " + day + ", " + year);
+        itemSixLabel.setBounds(40, 170, 700, 25);
         panel.add(itemSixLabel);
-        itemSevenLabel = new JLabel("sevem " + month + " " + day + ", " + year);
-        itemSevenLabel.setBounds(10, 195, 330, 25);
+        itemSevenLabel = new JLabel("No Breaded or Deep Fried Foods | " + onePoint + month + " " + day + ", " + year);
+        itemSevenLabel.setBounds(40, 195, 700, 25);
         panel.add(itemSevenLabel);
-        itemEightLabel = new JLabel("eight " + month + " " + day + ", " + year);
-        itemEightLabel.setBounds(10, 220, 330, 25);
+        itemEightLabel = new JLabel("Climb 300 Stairs | " + onePoint + month + " " + day + ", " + year);
+        itemEightLabel.setBounds(40, 220, 700, 25);
         panel.add(itemEightLabel);
-        itemNineLabel = new JLabel("nine " + month + " " + day + ", " + year);
-        itemNineLabel.setBounds(10, 245, 330, 25);
+        itemNineLabel = new JLabel("Wall Sits or Planks | " + onePoint + month + " " + day + ", " + year);
+        itemNineLabel.setBounds(40, 245, 700, 25);
         panel.add(itemNineLabel);
-        itemTenLabel = new JLabel("ten " + month + " " + day + ", " + year);
-        itemTenLabel.setBounds(10, 270, 330, 25);
+        itemTenLabel = new JLabel("200 Rope Jumps | " + twoPoints  + month + " " + day + ", " + year);
+        itemTenLabel.setBounds(40, 270, 700, 25);
         panel.add(itemTenLabel);
-        itemElevenLabel = new JLabel("eleven " + month + " " + day + ", " + year);
-        itemElevenLabel.setBounds(10, 295, 330, 25);
+        itemElevenLabel = new JLabel("Sit ups or Push ups | " + onePoint + month + " " + day + ", " + year);
+        itemElevenLabel.setBounds(40, 295, 700, 25);
         panel.add(itemElevenLabel);
-        itemTweleveLabel = new JLabel("tweleve " + month + " " + day + ", " + year);
-        itemTweleveLabel.setBounds(10, 320, 330, 25);
+        itemTweleveLabel = new JLabel("Walk continuously for 30 minutes or 10,000 steps | " + twoPoints  + month + " " + day + ", " + year);
+        itemTweleveLabel.setBounds(40, 320, 700, 25);
         panel.add(itemTweleveLabel);
-        itemThirteenLabel = new JLabel("thirteen " + month + " " + day + ", " + year);
-        itemThirteenLabel.setBounds(10, 345, 330, 25);
+        itemThirteenLabel = new JLabel("75 Squats and or Lunges | " + onePoint + month + " " + day + ", " + year);
+        itemThirteenLabel.setBounds(40, 345, 700, 25);
         panel.add(itemThirteenLabel);
-        itemFourteenLabel = new JLabel("fourteen " + month + " " + day + ", " + year);
-        itemFourteenLabel.setBounds(10, 370, 330, 25);
-        panel.add(itemFourteenLabel);
-        itemFifteenLabel = new JLabel("");
-        itemFifteenLabel.setBounds(10, 500, 330, 25);
-        panel.add(itemFifteenLabel);
-        placeholder = new JLabel("");
-        placeholder.setBounds(10, 500, 330, 25);
-        panel.add(placeholder);
+
+
+        /*
+        not normal ones:
+        office sponsored wellness related trainings
+        participate in fitnesschallenge or race/
+        participate in cpr trainign or blood drive
+        organize or conduct fitness thing with 4+ coworkers.
+        reduce body mass
+        no smoking / vaping 120 days.
+        anual physical exam by doctor
+         */
 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -14,19 +14,23 @@ public class User
         this.totalPoints = totalPoints;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     public int getTotalPoints() {
-        return this.totalPoints;
+        return totalPoints;
     }
 }
